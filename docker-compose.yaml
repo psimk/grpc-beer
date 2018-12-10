@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+
+  envoy:
+    build:
+      context: .
+      dockerfile: envoy.Dockerfile
+    ports:
+      - '8080:8080'
+      - '9901:9901'
+    networks:
+      - server-net
+
+  server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    ports:
+      - '9090:9090'
+    networks:
+      - server-net
+
+  server-rest:
+    build:
+      context: .
+      dockerfile: server-rest.Dockerfile
+    ports:
+      - '6060:6060'
+
+networks:
+  server-net:

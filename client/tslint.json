@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-airbnb", "tslint-config-prettier", "tslint-react"],
+  "defaultSeverity": "warning",
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "src/stubs/**/*.ts",
+      "src/stubs/**/*.js",
+      "coverage/lcov-report/*.js"
+    ]
+  },"rules":{
+    "variable-name": false,
+    "prefer-array-literal": [true, { "allow-type-parameters": true }],
+    "no-console":false
+  }
+}

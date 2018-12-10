@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+enum Result {
+  Incorrect = 0;
+  Correct = 1;
+}
+
+message Beer {
+  string name = 1;
+  string country = 2;
+  string style = 3;
+  float abv = 4;
+}
+
+message AnswerResult { Result result = 1; }
+
+message Countries { repeated string countries = 1; }
+
+message Styles { repeated string styles = 1; }
+
+message ConfigRequest {}
+
+message BeerRequest { int32 delay = 1; }
+
+service BeerTime {
+  rpc SubmitAnswer(Beer) returns (AnswerResult);
+
+  rpc RandomBeerStream(BeerRequest) returns (stream Beer);
+
+  rpc RandomBeer(BeerRequest) returns (Beer);
+
+  rpc CountryData(ConfigRequest) returns (Countries);
+
+  rpc StyleData(ConfigRequest) returns (Styles);
+}

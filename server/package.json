@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "generate": "../gen_stubs.sh ../gochi.proto",
+    "start": "ts-node ./src/index.ts -C --resolveJsonModule",
+    "start:client": "ts-node --inspect 5858 ./mockClient.ts",
+    "dev": "nodemon -e ts -w ./src -x 'npm run start'"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "^0.3.0",
+    "google-protobuf": "^3.6.1",
+    "grpc": "^1.16.1",
+    "nodemon": "^1.18.6"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.10",
+    "grpc-tools": "^1.6.6",
+    "grpc_tools_node_protoc_ts": "^2.4.1",
+    "prettier": "^1.15.2",
+    "ts-node": "^7.0.1",
+    "ts-protoc-gen": "^0.8.0",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.16.0",
+    "typescript": "^3.1.6"
+  },
+  "author": "",
+  "license": "ISC"
+}
